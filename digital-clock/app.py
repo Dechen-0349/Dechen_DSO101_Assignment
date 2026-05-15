@@ -4,10 +4,11 @@ import pytz
 
 app = Flask(__name__)
 
+# List of timezones for the dropdown
 timezones = [
     ("Asia/Thimphu", "Bhutan Time (BTT)"),
     ("Asia/Kolkata", "India Standard Time (IST)"),
-    ("Asia/Dubai", "Gulf Standard Time (GST"),
+    ("Asia/Dubai", "Gulf Standard Time (GST)"),
     ("Europe/London", "Greenwich Mean Time (GMT)"),
     ("America/New_York", "Eastern Time (ET)"),
     ("America/Los_Angeles", "Pacific Time (PT)"),
@@ -19,7 +20,7 @@ timezones = [
 def index():
     return render_template("index.html", timezones=timezones)
 
-@app.route("/time/<tz>")
+@app.route("/time/<path:tz>")
 def get_time(tz):
     try:
         timezone = pytz.timezone(tz)

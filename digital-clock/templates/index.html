@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+le<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,8 +12,8 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Poppins', Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -27,85 +27,96 @@
             margin: 0 auto;
         }
 
+        /* Clock Card */
         .clock-card {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
             border-radius: 48px;
             padding: 40px 32px;
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
         }
 
+        /* Time Display */
         .time-display {
             text-align: center;
             margin-bottom: 32px;
         }
 
         .clock-time {
-            font-size: 60px;
+            font-size: 80px;
             font-weight: 700;
-            color: #00ff88;
+            color: #ffffff;
             letter-spacing: 4px;
-            font-family: 'Courier New', monospace;
-            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+            font-family: 'Courier New', 'Monaco', monospace;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
         @media (min-width: 768px) {
             .clock-time {
-                font-size: 100px;
+                font-size: 120px;
             }
         }
 
         .ampm {
             font-size: 24px;
-            color: #ff6b6b;
+            color: #00d4ff;
             margin-left: 12px;
-        }
-
-        .date-display {
-            font-size: 18px;
-            color: #ffffff;
-            margin-top: 16px;
             font-weight: 500;
         }
 
+        .date-display {
+            font-size: 20px;
+            color: #c4d4e3;
+            margin-top: 16px;
+            letter-spacing: 1px;
+        }
+
+        /* Timezone Selector */
         .timezone-section {
             margin-bottom: 32px;
         }
 
         .timezone-label {
             display: block;
-            color: #ffffff;
+            color: #c4d4e3;
             margin-bottom: 12px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 1px;
         }
 
         .timezone-select {
             width: 100%;
             padding: 14px 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 30px;
-            color: #000000;
+            color: white;
             font-size: 16px;
             cursor: pointer;
             font-family: inherit;
-            font-weight: 500;
+            transition: all 0.2s;
         }
 
         .timezone-select:hover {
-            background: rgba(255, 255, 255, 1);
-            border-color: #00ff88;
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #00d4ff;
         }
 
         .timezone-select:focus {
             outline: none;
-            border-color: #00ff88;
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+            border-color: #00d4ff;
+            background: rgba(0, 0, 0, 0.5);
         }
 
+        .timezone-select option {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        /* Additional Info Cards */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -114,42 +125,66 @@
         }
 
         .info-card {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             padding: 16px;
             text-align: center;
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .info-label {
             font-size: 12px;
-            color: #ffffff;
+            color: #8ba0b5;
             text-transform: uppercase;
-            margin-bottom: 8px;
             letter-spacing: 1px;
-            font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .info-value {
-            font-size: 32px;
-            font-weight: 700;
-            color: #00ff88;
-            text-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+            font-size: 28px;
+            font-weight: 600;
+            color: #00d4ff;
         }
 
+        /* Footer */
         .footer {
             text-align: center;
             margin-top: 24px;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 12px;
-            letter-spacing: 1px;
         }
 
-        /* Loading animation */
-        .loading-text {
-            color: white;
-            text-align: center;
-            font-size: 20px;
+        /* Loading State */
+        .loading {
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        @media (max-width: 500px) {
+            .clock-card {
+                padding: 24px 20px;
+            }
+            
+            .clock-time {
+                font-size: 48px;
+            }
+            
+            .ampm {
+                font-size: 16px;
+            }
+            
+            .date-display {
+                font-size: 14px;
+            }
+            
+            .info-value {
+                font-size: 20px;
+            }
+            
+            .info-grid {
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -157,44 +192,41 @@
     <div class="container">
         <div class="clock-card">
             <div class="time-display">
-                <div class="clock-time">
+                <div class="clock-time" id="clockTime">
                     <span id="hours">--</span>:<span id="minutes">--</span>:<span id="seconds">--</span>
                     <span class="ampm" id="ampm">--</span>
                 </div>
-                <div class="date-display" id="dateDisplay">Loading...</div>
+                <div class="date-display" id="dateDisplay">--</div>
             </div>
 
             <div class="timezone-section">
-                <label class="timezone-label">🌍 SELECT TIMEZONE</label>
+                <label class="timezone-label">SELECT TIMEZONE</label>
                 <select id="timezoneSelect" class="timezone-select">
-                    <option value="Asia/Thimphu">🇧🇹 Bhutan Time (BTT)</option>
-                    <option value="Asia/Kolkata">🇮🇳 India Standard Time (IST)</option>
-                    <option value="Asia/Dubai">🇦🇪 Gulf Standard Time (GST)</option>
-                    <option value="Europe/London">🇬🇧 Greenwich Mean Time (GMT)</option>
-                    <option value="America/New_York">🇺🇸 Eastern Time (ET)</option>
-                    <option value="America/Los_Angeles">🇺🇸 Pacific Time (PT)</option>
-                    <option value="Asia/Tokyo">🇯🇵 Japan Standard Time (JST)</option>
-                    <option value="Australia/Sydney">🇦🇺 Australian Eastern Time (AET)</option>
+                    {% for tz_code, tz_name in timezones %}
+                    <option value="{{ tz_code }}" {% if tz_code == 'Asia/Thimphu' %}selected{% endif %}>
+                        {{ tz_name }}
+                    </option>
+                    {% endfor %}
                 </select>
             </div>
 
             <div class="info-grid">
                 <div class="info-card">
-                    <div class="info-label">🕐 HOUR</div>
+                    <div class="info-label">HOUR</div>
                     <div class="info-value" id="hourValue">--</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">🕑 MINUTE</div>
+                    <div class="info-label">MINUTE</div>
                     <div class="info-value" id="minuteValue">--</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">🕒 SECOND</div>
+                    <div class="info-label">SECOND</div>
                     <div class="info-value" id="secondValue">--</div>
                 </div>
             </div>
         </div>
         <div class="footer">
-            DIGITAL CLOCK | CI/CD DEMO | DSO101 ⚡
+            DIGITAL CLOCK | CI/CD DEMO | DSO101
         </div>
     </div>
 
@@ -215,10 +247,7 @@
                     document.getElementById('minuteValue').textContent = data.minute;
                     document.getElementById('secondValue').textContent = data.second;
                 })
-                .catch(error => {
-                    console.error('Error fetching time:', error);
-                    document.getElementById('dateDisplay').textContent = 'Error loading time';
-                });
+                .catch(error => console.error('Error fetching time:', error));
         }
 
         function startClock() {
@@ -227,15 +256,11 @@
             updateInterval = setInterval(updateClock, 1000);
         }
 
-        const selectElement = document.getElementById('timezoneSelect');
-        if (selectElement) {
-            selectElement.addEventListener('change', function(e) {
-                currentTimezone = e.target.value;
-                startClock();
-            });
-        }
+        document.getElementById('timezoneSelect').addEventListener('change', function(e) {
+            currentTimezone = e.target.value;
+            startClock();
+        });
 
-        // Start the clock when page loads
         startClock();
     </script>
 </body>
