@@ -339,7 +339,7 @@ git push origin main
 
 ---
 
-# Unit 9: Conclusion
+# PART 9: Conclusion
 
 ## Project Achievements
 
@@ -363,28 +363,6 @@ git push origin main
 
 ---
 
-## CI/CD Pipeline Summary
-
-```text
-Code Push → GitHub → GitHub Actions (Test) → Render (Deploy) → Live URL
-     ↑                                                      ↓
-     └───────────────── Auto-deploy on next push ──────────┘
-```
-
-<img src="images/final_product.png" alt=" ">
-<img src="images/cicd_flow.png" alt=" ">
-
----
-
-## Submission Checklist
-
-* All screenshots inserted
-* Live URL working: https://digital-clock.onrender.com
-* GitHub repository public
-* README.md complete
-
----
-
 ## References
 
 - Flask Documentation: https://flask.palletsprojects.com/
@@ -394,7 +372,7 @@ Code Push → GitHub → GitHub Actions (Test) → Render (Deploy) → Live URL
 
 ---
 
-**Student Name:** Dechen  
+**Student Name:** Dechen Wangmo
 **Course:** DSO101  
 **Assignment:** Digital Clock with CI/CD  
 **Submission Date:** May 15, 2026  
