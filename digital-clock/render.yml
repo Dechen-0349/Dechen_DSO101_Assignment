@@ -1,0 +1,35 @@
+name: Recipe Book CI/CD
+
+on:
+  push:
+    paths:
+      - 'recipe-book/**'
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      
+      - name: Install dependencies
+        run: |
+          cd recipe-book
+          pip install -r requirements.txt
+      
+      - name: Verify Flask app
+        run: |
+          cd recipe-book
+          python -c "import app; print('Recipe Book Flask app loaded successfully')"
+      
+      - name: Trigger Render Deployment
+        run: |
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}

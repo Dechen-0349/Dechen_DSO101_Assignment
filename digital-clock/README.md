@@ -55,9 +55,6 @@ cd digital-clock
 python app.py
 pip install flask pytz
 ```
-
-<img src="digital-clock-images/local_development" alt=" ">
-
 ---
 
 # PART 2: Local Development Setup
@@ -70,13 +67,21 @@ mkdir digital-clock
 cd digital-clock
 
 ```
+For example for Bhutan Time (BTT):
+<img src="A4_images/local_development.png" alt=" ">
+<img src="A4_images/local_development_inCLI.png" alt=" ">
+<img src="A4_images/local_Host.png" alt=" ">
+
+There are more other languages:
+
+<img src="A4_images/other.languages.png" alt=" ">
+
 
 ## Installing Dependencies
 
 ```bash
 pip install flask pytz
 ```
-
 ---
 
 ## Project Files Created
@@ -88,7 +93,7 @@ pip install flask pytz
 | requirements.txt | Dependencies list |
 
 
-<img src="digital-clock-images/project_structure" alt=" ">
+<img src="A4_images/project_structure.png" alt=" ">
 
 ---
 
@@ -166,7 +171,7 @@ pytz
 
 ---
 
-#  4: GitHub Repository Setup
+#  PART 4: GitHub Repository Setup
 
 ## Creating GitHub Repository
 
@@ -189,12 +194,10 @@ git remote add origin https://github.com/Dechen-0349/digital-clock.git
 git push -u origin main
 ```
 
-<img src="digital-clock-images/git_commit.png" alt=" ">
-<img src="digital-clock-images/git-push.png" alt=" ">
-
+<img src="A4_images/git_push.png" alt=" ">
 ---
 
-# Unit 5: GitHub Actions CI/CD Pipeline
+# PART 5: GitHub Actions CI/CD Pipeline
 
 ## Workflow File (.github/workflows/deploy.yml)
 
@@ -233,10 +236,6 @@ jobs:
         pip install flake8
         flake8 app.py --count --select=E9,F63,F7,F82 --show-source --statistics
 ```
-
-<img src="images/workflow_folder.png" alt=" ">
-<img src="images/workflow_file.png" alt=" ">
-
 ---
 
 ## Pushing Workflow to GitHub
@@ -246,32 +245,13 @@ git add .
 git commit -m "Add GitHub Actions CI/CD workflow"
 git push origin main
 ```
-
-<img src="images/push_workflow.png" alt=" ">
-
 ---
 
-## GitHub Actions Execution
-
-<img src="images/actions_tab.png" alt=" ">
-<img src="images/workflow_details.png" alt=" ">
-<img src="images/test_output.png" alt=" ">
-<img src="images/linting.png" alt=" ">
-
----
-
-# Unit 6: Render Deployment
-
-## Sign Up on Render
-
-<img src="images/render_dashboard.png" alt=" ">
-
----
+# PART 6: Render Deployment
 
 ## Creating Web Service
 
-<img src="images/connect_github.png" alt=" ">
-<img src="images/select_repo.png" alt=" ">
+<img src="A4_images/render-webservice.png" alt=" ">
 
 ---
 
@@ -286,22 +266,18 @@ git push origin main
 | Build Command | pip install -r requirements.txt |
 | Start Command | gunicorn app:app |
 
-<img src="images/render_config.png" alt=" ">
-
 ---
 
 ## Deployment
 
-<img src="images/build_logs.png" alt=" ">
-<img src="images/deploy_success.png" alt=" ">
-<img src="images/live_url.png" alt=" ">
+<img src="A4_images/final_deploy.png" alt=" ">
 
 ---
 
 ## Live Application
 
-<img src="images/live_clock.png" alt=" ">
-<img src="images/mobile_view.png" alt=" ">
+<img src="A4_images/live-clock.png" alt=" ">
+<img src="" alt=" ">
 
 ---
 
@@ -309,7 +285,7 @@ git push origin main
 
 ## Automated Tests
 
-<img src="images/test_results.png" alt=" ">
+<img src="A4_images/final_test.png" alt=" ">
 
 ---
 
@@ -324,50 +300,42 @@ git push origin main
 | Local server runs | 127.0.0.1:5000 works | ✅ PASS |
 | Render deployment | Live URL accessible | ✅ PASS |
 
-<img src="images/timezone_test.png" alt=" ">
-<img src="images/api_test.png" alt=" ">
-
 ---
 
-# Unit 8: Challenges & Solutions
+# PART 8: Challenges & Solutions
 
-## Challenge 1: Syntax Error in app.py
-
-**Error:** Missing closing parenthesis on line 10
-
-**Solution:** Fixed `("Asia/Dubai", "Gulf Standard Time (GST)"),`
-
-<img src="images/syntax_error.png" alt=" ">
-
+## 
 ---
 
-## Challenge 2: Empty index.html File
-
-**Error:** 0 bytes file - nothing displayed
-
-**Solution:** Deleted empty file and recreated with proper HTML code
-
-<img src="images/empty_file.png" alt=" ">
-
----
-
-## Challenge 3: Render requirements.txt Not Found
+## Challenge 1: Render requirements.txt Not Found
 
 **Error:** Build failed - No requirements.txt
 
+<img src="A4_images/challenge1.png" alt=" ">
+
+
 **Solution:** Created dedicated repository with files at root level
 
-<img src="images/render_error.png" alt=" ">
+<img src="A4_images/Solution1.png" alt=" ">
 
 ---
 
-## Challenge 4: Text Not Visible on Clock
+## Challenge 2: Render Deploy Logging Error
+
+**Error:** Happens when Python cannot find any module called app that I used in this practical i.e. app.py
+
+<img src="A4_images/challenge1.png" alt=" ">
+
+
+**Solution:** Change the Start Command to gunicorn digital-clock.app:app
+<img src="A4_images/Solution2.png" alt=" ">
+
+
+## Challenge 3: 
 
 **Error:** White text on white background
 
 **Solution:** Updated CSS with better color contrast (green time on dark background)
-
-<img src="images/color_fix.png" alt=" ">
 
 ---
 
