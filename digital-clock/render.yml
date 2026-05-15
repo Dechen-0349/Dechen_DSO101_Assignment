@@ -1,9 +1,9 @@
-name: Recipe Book CI/CD
+name: Digital-clock CI/CD
 
 on:
   push:
     paths:
-      - 'recipe-book/**'
+      - 'digital-clock/**'
     branches:
       - main
 
