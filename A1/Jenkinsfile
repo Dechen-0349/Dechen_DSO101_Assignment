@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS'
+        nodejs 'NodeJS-20'
     }
 
     environment {
@@ -47,7 +47,7 @@ pipeline {
                     docker.build("${DOCKERHUB_USER}/be-todo:${STUDENT_ID}", './backend')
                     docker.build("${DOCKERHUB_USER}/fe-todo:${STUDENT_ID}", './frontend')
                 }
-            }
+            }       
         }
 
         stage('Push to Docker Hub') {
