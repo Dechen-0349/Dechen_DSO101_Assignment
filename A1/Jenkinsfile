@@ -22,21 +22,21 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                dir('backend') {
-                    sh 'npm install'
+                dir('A1/backend') {
+                    bat 'npm install'
                 }
             }
         }
 
         stage('Test') {
             steps {
-                dir('backend') {
-                    sh 'npm test'
+                dir('A1/backend') {
+                    bat 'npm test'
                 }
             }
             post {
                 always {
-                    junit 'backend/junit.xml'
+                    junit 'A1/backend/junit.xml'
                 }
             }
         }
@@ -44,10 +44,10 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 script {
-                    docker.build("${DOCKERHUB_USER}/be-todo:${STUDENT_ID}", './backend')
-                    docker.build("${DOCKERHUB_USER}/fe-todo:${STUDENT_ID}", './frontend')
+                    docker.build("${DOCKERHUB_USER}/be-todo:${STUDENT_ID}", './A1/backend')
+                    docker.build("${DOCKERHUB_USER}/fe-todo:${STUDENT_ID}", './A1/frontend')
                 }
-            }       
+            }
         }
 
         stage('Push to Docker Hub') {
