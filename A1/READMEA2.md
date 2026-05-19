@@ -108,11 +108,43 @@ Before writing the Jenkinsfile, Jest tests is needed in the backend.
 
 **Create a simple test file backend/tests/app.test.js:**
 
-<img src="images_A2/app_test.png" alt="Backend
+<img src="images_A2/app_test.png" alt="Backend">
+
+Successfully tested
+
+<img src="images_A2/app_test.png" alt="Backend">
+
+Successfully generated:
+
+<img src="images_A2/app_test.png" alt="Backend">
 
 ---
 
-">
+### Step 4: Create Jenkinsfile
+Create a file named Jenkinsfile in your repo root (not inside frontend or backend)
+
+---
+
+### Step 5: Create Jenkins Pipeline Job
+
+**In Pipeline section:**
+
+1. Definition: Pipeline script from SCM
+2. SCM: Git
+3. Repository URL: https://github.com/yourusername/your-repo.git
+4. Credentials: select github-creds
+5. Branch: */main
+6. Script Path: Jenkinsfile
+7. Click Save
+
+<img src="images_A2/pipeline.png" alt="Backend">
+
+---
+
+### Step 6: Run the Pipeline
+
+
+
 
 
 

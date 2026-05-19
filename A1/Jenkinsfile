@@ -1,0 +1,79 @@
+pipeline {
+    agent any
+
+    tools {
+        nodejs 'NodeJS'
+    }
+
+    environment {
+        DOCKERHUB_USER = '06dewa'  
+        STUDENT_ID     = '02250349'    
+    }
+
+    stages {
+
+        // STAGE 1: Pull code from GitHub
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/Dechen-0349/Dechen_DSO101_Assignment.git',
+                    credentialsId: 'github-creds'
+            }
+        }
+
+        // STAGE 2: Install backend dependencies
+        stage('Install Dependencies') {
+            steps {
+                dir('backend') {
+                    sh 'npm install'
+                }
+            }
+        }
+
+        // STAGE 3: Run unit tests
+        stage('Test') {
+            steps {
+                dir('backend') {
+                    sh 'npm test'
+                }
+            }
+            post {
+                always {
+                    junit 'backend/junit.xml'
+                }
+            }
+        }
+
+        // STAGE 4: Build Docker images (backend + frontend)
+        stage('Build Docker Images') {
+            steps {
+                script {
+                    docker.build("${06dewa}/be-todo:${02250349}", './backend')
+                    docker.build("${06dewa}/fe-todo:${02250349}", './frontend')
+                }
+            }
+        }
+
+        // STAGE 5: Push images to Docker Hub
+        stage('Push to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-creds') {
+                        docker.image("${06dewa}/be-todo:${02250349}").push()
+                        docker.image("${06dewa}/fe-todo:${02250349}").push()
+                    }
+                }
+            }
+        }
+
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check the logs above.'
+        }
+    }
+}
