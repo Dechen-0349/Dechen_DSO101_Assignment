@@ -1,7 +1,5 @@
 # DSO101 Assignment 1 — To-Do App with Docker
 
-**Student ID: 02250349**
-
 ## AIM
 This project takes a To-Do web application and packages it using Docker so it can run anywhere. Then it deploys it live on the internet using Render.com.
 
@@ -48,7 +46,78 @@ Database passwords are stored as environment variables — not written directly 
 
 ## IMPLEMENTATION STEPS
 
-### Step 1: Backend Dockerfile
+### PART 1: Jenkins CI/CD Pipeline
+
+### Step 1: Jenkins Setup
+
+**i. Install Jenkins on Windows**
+
+<img src="images_A2/jenkins_setup2.png" alt="jenkins setup">
+
+---
+
+**ii. Install Required Plugins**
+
+<img src="images_A2/jenkins_plugins.png" alt="jenkins setup">
+
+---
+
+### Step 2:: GitHub Repository Setup
+
+**1. Project Structure**
+
+<img src="images_A2/jenkins_plugins.png" alt="jenkins setup">
+
+---
+
+**2. Generate a GitHub Personal Access Token (PAT)**
+Generate new token by:
+
+<img src="images_A2/PAT.png" alt="Pat token">
+
+This token is very important for GitHub and Docker credentials
+
+---
+
+**3. Add GitHub Credentials in Jenkins**
+ 
+<img src="images_A2/Github_credentials.png" alt="Credentials">
+
+---
+
+**4. Add Docker Credentials in Jenkins**
+
+<img src="images_A2/Docker_credentials.png" alt="Credentials">
+
+---
+
+### Step 3: Add Tests to the Backend
+Before writing the Jenkinsfile, Jest tests is needed in the backend.
+
+**Install Jest in the Backend:**
+
+<img src="images_A2/dependencies.png" alt="JEST">
+
+---
+
+**Update backend/package.json scripts:**
+
+<img src="images_A2/backend_json.png" alt="Backend_json">
+
+---
+
+**Create a simple test file backend/tests/app.test.js:**
+
+<img src="images_A2/app_test.png" alt="Backend
+
+---
+
+">
+
+
+
+
+
 A Dockerfile tells Docker how to build your app. Here is the one used for the backend:
 
 ```dockerfile

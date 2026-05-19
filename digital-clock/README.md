@@ -331,14 +331,6 @@ git push origin main
 <img src="A4_images/Solution2.png" alt=" ">
 
 
-## Challenge 3: 
-
-**Error:** White text on white background
-
-**Solution:** Updated CSS with better color contrast (green time on dark background)
-
----
-
 # PART 9: Conclusion
 
 ## Project Achievements
