@@ -6,13 +6,12 @@ pipeline {
     }
 
     environment {
-        DOCKERHUB_USER = '06dewa'  
-        STUDENT_ID     = '02250349'    
+        DOCKERHUB_USER = '06dewa'
+        STUDENT_ID     = '02250349'
     }
 
     stages {
 
-        // STAGE 1: Pull code from GitHub
         stage('Checkout') {
             steps {
                 git branch: 'main',
@@ -21,7 +20,6 @@ pipeline {
             }
         }
 
-        // STAGE 2: Install backend dependencies
         stage('Install Dependencies') {
             steps {
                 dir('backend') {
@@ -30,7 +28,6 @@ pipeline {
             }
         }
 
-        // STAGE 3: Run unit tests
         stage('Test') {
             steps {
                 dir('backend') {
@@ -44,28 +41,25 @@ pipeline {
             }
         }
 
-        // STAGE 4: Build Docker images (backend + frontend)
         stage('Build Docker Images') {
             steps {
                 script {
-                    docker.build("${06dewa}/be-todo:${02250349}", './backend')
-                    docker.build("${06dewa}/fe-todo:${02250349}", './frontend')
+                    docker.build("${DOCKERHUB_USER}/be-todo:${STUDENT_ID}", './backend')
+                    docker.build("${DOCKERHUB_USER}/fe-todo:${STUDENT_ID}", './frontend')
                 }
             }
         }
 
-        // STAGE 5: Push images to Docker Hub
         stage('Push to Docker Hub') {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-creds') {
-                        docker.image("${06dewa}/be-todo:${02250349}").push()
-                        docker.image("${06dewa}/fe-todo:${02250349}").push()
+                        docker.image("${DOCKERHUB_USER}/be-todo:${STUDENT_ID}").push()
+                        docker.image("${DOCKERHUB_USER}/fe-todo:${STUDENT_ID}").push()
                     }
                 }
             }
         }
-
     }
 
     post {
