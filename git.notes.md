@@ -590,6 +590,19 @@
 
   ---
 
+  # Docker Compose Lab in KodeKloud
+
+1.
+<img src="git.notes.image/cp1.png" alt="Docker Lab ">
+2.
+<img src="git.notes.image/cp2.png" alt="Docker Lab ">
+3.
+<img src="git.notes.image/cp3.png" alt="Docker Lab ">
+4.
+  <img src="git.notes.image/cp4.png" alt="Docker Lab ">
+
+---
+
   ## Part 4: Networks (Containers Talking)
 
   By default, containers are **isolated** and cannot communicate with each other.
@@ -917,6 +930,6 @@
 ## Unit 5:
 
    In this unit, using the foundational concepts I learnt in the previous unit, I understood how to mitigate the errors or implications that causes the automatic deployment in Jenkins to fail and how the pipeline can be modified with alignment to the GitHub.
-   
+
 
 
