@@ -599,7 +599,12 @@
 3.
 <img src="git.notes.image/cp3.png" alt="Docker Lab ">
 4.
-  <img src="git.notes.image/cp4.png" alt="Docker Lab ">
+<img src="git.notes.image/cp4.png" alt="Docker Lab ">
+
+Local Host:
+The count will increase with the number of login or action or any event.
+
+<img src="git.notes.image/results_cp4.png" alt="Docker Lab ">
 
 ---
 
