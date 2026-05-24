@@ -2,8 +2,8 @@
 
   **Course:** DS0101 - Continuous Integration and Continuous Deployment  
   **Program:** Bachelor's Engineering in Software Engineering (SWE)  
-  **Student:** Pema Rinzin Deolkar  
-  **GitHub Repository:** [DSO101_02250349](https://github.com/Dechen-Wangmo-2025/DSO101.git)
+  **Student:** Dechen Wangmo   
+  **GitHub Repository:** [_02250349](https://github.com/Dechen-Wangmo-2025/DSO101.git)
 
   ---
 
