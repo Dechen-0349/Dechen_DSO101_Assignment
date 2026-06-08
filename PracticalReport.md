@@ -14,7 +14,7 @@
 3. [Practical 3: Docker Tasks](#practical-3-docker-tasks)
 4. [Practical 4: Jenkins](#practical-4-jenkins)
 5. [Practical 5: Data Persistence](#practical-5-data-persistence)
-6. [Practical 7: Dockerfile](#practical-7-dockerfile)
+6. [Practical 6: Dockerfile](#practical-7-dockerfile)
 ---
 
 # Practical 1: Basic Linux Commands
